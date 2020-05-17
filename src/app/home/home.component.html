@@ -1,0 +1,20 @@
+<div class="container" style="text-align:center">
+  <div class="row" style="text-align:center">
+    <div class="col-md-12" style="font-size:22px">All Blogs </div>
+    <br><br><br><br>
+  </div>
+  <div class="row">
+    <div *ngFor="let blog of allBlogs" class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ blog.title }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{blog.created | date}}</h6>
+          <p class="card-text">{{blog.description}}</p>
+          <p class="card-text">by {{blog.author}}</p>
+          <a [routerLink]="['/blog', blog.blogId]" class="card-link">Read</a>
+        </div>
+      </div>
+      <br />
+    </div>
+  </div>
+</div>

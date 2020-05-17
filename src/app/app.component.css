@@ -1,0 +1,16 @@
+.header {
+    background-color: #04192e;
+    display: block;
+    padding: 3%;
+    color: white;
+    font-size: 26px;
+    margin-bottom: 12px;
+}
+
+.nav .nav-item .active {
+    background-color: #04192e;
+}
+
+.navbar {
+    margin-bottom: 2rem;
+}

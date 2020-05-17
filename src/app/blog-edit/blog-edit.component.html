@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row" style="text-align:left">
+        <div class="col-md-12">
+            <form #createBlogForm="ngForm" (ngSubmit)="editBlog()">
+                <div class="form-group">
+                    <label>Blog Title</label>
+                    <input type="text" name="blogTitle" [(ngModel)]="currentBlog.title" #title="ngModel" class="form-control" placeholder="Title" required>
+                </div>
+                <div [hidden]="title.valid || title.pristine" class="alert alert-danger">
+                    Blog Title is required
+                </div>
+
+                <div class="form-group">
+                    <label>Description</label>
+                    <input type="text" name="blogDescription" [(ngModel)]="currentBlog.description" #description="ngModel" class="form-control" placeholder="Enter Description"
+                      required>
+                </div>
+                  
+                <div class="form-group">
+                    <label>Enter the blog body</label>
+                    <textarea name="blogBodyHtml" [(ngModel)]="currentBlog.bodyHtml" #bodyHtml="ngModel" class="form-control" rows="3" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Category</label>
+                    <select [(ngModel)]="currentBlog.category" #category="ngModel" name="blogCategory" class="form-control" id="category" required>
+                        <option *ngFor="let categ of possibleCategories;" [value]="categ">{{categ}}</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-dark" [disabled]="!createBlogForm.form.valid">Post</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="toast" style="position: absolute; top: 10px; right: 10px;" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <strong class="mr-auto">Success</strong>
+          <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="toast-body">
+          Post Edited Successfully
+        </div>
+    </div>
+</div>
